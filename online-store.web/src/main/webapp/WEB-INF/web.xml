@@ -58,4 +58,18 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 		<session-timeout>15</session-timeout>
 	</session-config>
 
+	<filter>
+		<filter-name>helloFilter</filter-name>
+		<filter-class>com.itbulls.learnit.onlinestore.web.filters.HelloWorldFilter</filter-class>
+		<init-param>
+			<param-name>initParam</param-name>
+			<param-value>Init Param</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>helloFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 </web-app>
