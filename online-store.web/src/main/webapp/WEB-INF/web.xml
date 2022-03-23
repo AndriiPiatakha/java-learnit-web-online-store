@@ -72,4 +72,17 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<listener>
+		<listener-class>com.itbulls.learnit.onlinestore.web.listeners.SessionListener</listener-class>
+	</listener>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error-handler</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/error-handler</location>
+	</error-page>
+
 </web-app>
