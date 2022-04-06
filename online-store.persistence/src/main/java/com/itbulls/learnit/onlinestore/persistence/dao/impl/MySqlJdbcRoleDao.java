@@ -30,4 +30,25 @@ public class MySqlJdbcRoleDao implements RoleDao {
 		return null;
 	}
 
+	@Override
+	public RoleDto getRoleByRoleName(String roleName) {
+		try (var conn = DBUtils.getConnection(); 
+				var ps = conn.prepareStatement("SELECT * FROM role WHERE role_name = ?")) {
+			ps.setString(1, roleName);
+			
+			try (var rs = ps.executeQuery()) {
+				if (rs.next()) {
+					RoleDto role = new RoleDto();
+					role.setId(rs.getInt("id"));
+					role.setRoleName(rs.getString("role_name"));
+					return role;
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

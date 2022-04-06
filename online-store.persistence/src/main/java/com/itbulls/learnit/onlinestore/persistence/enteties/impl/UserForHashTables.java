@@ -16,6 +16,8 @@ public class UserForHashTables implements User {
 	private String roleName;
 	private double money;
 	private String creditCard;
+	private String partnerCode;
+	private User referrerUser;
 
 	{
 		id = ++userCounter;
@@ -154,6 +156,25 @@ public class UserForHashTables implements User {
 	@Override
 	public void setCreditCard(String creditCard) {
 		this.creditCard = creditCard;
+	}
+	
+	@Override
+	public void setPartnerCode(String partnerCode) {
+		this.partnerCode = partnerCode;
+	}
+	
+	public String getPartnerCode() {
+		return this.partnerCode;
+	}
+	
+	@Override
+	public void setReferrerUser(User referrerUser) {
+		this.referrerUser = referrerUser;
+	}
+
+	@Override
+	public User getReferrerUser() {
+		return this.referrerUser;
 	}
 	
 }

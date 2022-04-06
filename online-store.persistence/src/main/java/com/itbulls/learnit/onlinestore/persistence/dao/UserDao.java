@@ -14,4 +14,6 @@ public interface UserDao {
 
 	UserDto getUserById(int id);
 
+	UserDto getUserByPartnerCode(String partnerCode);
+
 }

@@ -6,12 +6,17 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>onlinestore</display-name>
 	<welcome-file-list>
+		<!-- Welcome file list is adjusted during the Exam task to create online store -->
+		<!--
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>default.html</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
+		-->
+		
+		<welcome-file>homepage.html</welcome-file>
 	</welcome-file-list>
 
 	<servlet>

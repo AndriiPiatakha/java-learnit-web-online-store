@@ -18,11 +18,17 @@ import jakarta.servlet.annotation.WebFilter;
 public class HelloWorldFilter extends HttpFilter {
 	
 	public void init(FilterConfig config) {
+//		Commented during the implementation of the online store.
+//		Remove comment below to see "Hello World" in console on each request to the server
+		
 		System.out.println(config.getInitParameter("initParam"));
 	}
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("Hello World!");
+//		Commented during the implementation of the online store.
+//		Remove comment below to see "Hello World" in console on each request to the server
+		
+		//		System.out.println("Hello World!");
 		chain.doFilter(request, response);
 		
 	}

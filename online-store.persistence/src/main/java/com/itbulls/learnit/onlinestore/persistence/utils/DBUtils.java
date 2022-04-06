@@ -16,8 +16,9 @@ public class DBUtils {
 	
 	public static Connection getConnection() {
 		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			return DriverManager.getConnection(JDBC_MYSQL_HOST + DB_NAME, USERNAME, PASSWORD);
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
 	}
