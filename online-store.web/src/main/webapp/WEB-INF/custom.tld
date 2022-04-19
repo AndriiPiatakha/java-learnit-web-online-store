@@ -1,0 +1,29 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>3.0</jsp-version>
+	<short-name>Example TLD</short-name>
+
+	<tag>
+		<name>helloTag</name>
+		<tag-class>com.itbulls.learnit.onlinestore.web.tags.HelloTagHandler
+		</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>message</name>
+		</attribute>
+		<attribute>
+			<name>coll</name>
+			<type>java.util.Collection</type>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>coloredListItems</name>
+		<tag-class>com.itbulls.learnit.onlinestore.web.tags.DynamicAttributesTagHandler
+		</tag-class>
+		<body-content>empty</body-content>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+
+</taglib>
