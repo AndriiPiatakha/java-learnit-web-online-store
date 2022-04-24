@@ -11,4 +11,6 @@ public interface UserFacade {
 	User getUserByEmail(String email);
 	
 	List<User> getUsers();
+
+	User getUserById(Integer userId);
 }

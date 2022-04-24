@@ -45,4 +45,9 @@ public class DefaultUserFacade implements UserFacade {
 	public List<User> getUsers() {
 		return userConverter.convertUserDtosToUsers(userDao.getUsers());
 	}
+
+	@Override
+	public User getUserById(Integer userId) {
+		return userConverter.convertUserDtoToUser(userDao.getUserById(userId));
+	}
 }
