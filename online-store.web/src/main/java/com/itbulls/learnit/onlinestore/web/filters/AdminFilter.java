@@ -34,7 +34,7 @@ public class AdminFilter extends HttpFilter {
 				      + request.getServerName()
 				      + ":"
 				      + request.getServerPort()
-				      + request.getServletContext().getContextPath() + "/signin.html");
+				      + request.getServletContext().getContextPath() + "/signin");
 		}
 		
 	}

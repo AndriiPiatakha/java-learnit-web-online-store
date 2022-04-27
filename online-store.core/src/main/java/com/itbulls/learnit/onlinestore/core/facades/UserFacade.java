@@ -13,4 +13,8 @@ public interface UserFacade {
 	List<User> getUsers();
 
 	User getUserById(Integer userId);
+
+	void updateUser(User referrerUser);
+
+	List<User> getReferralsForUser(User loggedInUser);
 }

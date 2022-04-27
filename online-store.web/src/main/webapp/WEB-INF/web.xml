@@ -16,7 +16,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 		<welcome-file>default.jsp</welcome-file>
 		-->
 		
-		<welcome-file>homepage.html</welcome-file>
+		<welcome-file>homepage</welcome-file>
 	</welcome-file-list>
 
 	<servlet>
@@ -88,6 +88,10 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	<error-page>
 		<exception-type>java.lang.NullPointerException</exception-type>
 		<location>/error-handler</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/not-found</location>
 	</error-page>
 
 </web-app>

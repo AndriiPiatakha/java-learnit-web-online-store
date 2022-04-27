@@ -12,11 +12,7 @@ import com.itbulls.learnit.onlinestore.persistence.utils.DBUtils;
 
 public class MySqlJdbcUserDao implements UserDao {
 
-	private RoleDao roleDao;
-
-	{
-		roleDao = new MySqlJdbcRoleDao();
-	}
+	private RoleDao roleDao = new MySqlJdbcRoleDao();
 
 	@Override
 	public UserDto getUserById(int id) {
@@ -138,10 +134,78 @@ public class MySqlJdbcUserDao implements UserDao {
 			user.setPassword(rs.getString("password"));
 			user.setPartnerCode(rs.getString("partner_code"));
 			user.setReferrerUser(this.getUserById(rs.getInt("referrer_user_id")));
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return user;
+	}
+
+	@Override
+	public void updateUser(UserDto user) {
+		try (var conn = DBUtils.getConnection();
+				var ps = conn.prepareStatement("UPDATE user "
+						+ "SET first_name = ?, "
+						+ "last_name = ?, "
+						+ "email = ?, "
+						+ "fk_user_role = ?, "
+						+ "money = ?, "
+						+ "credit_card = ?, "
+						+ "password = ?, "
+						+ "partner_code = ?, "
+						+ "referrer_user_id = ? "
+						+ "WHERE id = ?")) {
+			ps.setString(1, user.getFirstName());
+			ps.setString(2, user.getLastName());
+			ps.setString(3, user.getEmail());
+			if (user.getRoleDto() != null && user.getRoleDto().getId() != null) {
+				ps.setInt(4, user.getRoleDto().getId());
+			} else if (user.getRoleDto() != null && !user.getRoleDto().getRoleName().isEmpty()) {
+				ps.setInt(4, roleDao.getRoleByRoleName(user.getRoleDto().getRoleName()).getId());
+			} else {
+				ps.setNull(4, java.sql.Types.NULL);
+			}
+			ps.setBigDecimal(5, user.getMoney());
+			ps.setString(6, user.getCreditCard());
+			ps.setString(7, user.getPassword());
+			ps.setString(8, user.getPartnerCode());
+			
+			if (user.getReferrerUser() != null) {
+				ps.setInt(9, user.getReferrerUser().getId());
+			} else {
+				ps.setNull(9, java.sql.Types.NULL);
+			}
+			
+			ps.setInt(10, user.getId());
+
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public List<UserDto> getReferralsByUserId(int id) {
+		try (var conn = DBUtils.getConnection();
+				var ps = conn.prepareStatement("SELECT * FROM user WHERE referrer_user_id = ?")) {
+			
+			ps.setInt(1, id);
+			
+			try (var rs = ps.executeQuery()) {
+				List<UserDto> users = new ArrayList<>();
+
+				while (rs.next()) {
+					UserDto user = parseUserDtoFromResultSet(rs);
+					users.add(user);
+				}
+
+				return users;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

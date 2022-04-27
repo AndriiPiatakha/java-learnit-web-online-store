@@ -16,4 +16,8 @@ public interface UserDao {
 
 	UserDto getUserByPartnerCode(String partnerCode);
 
+	void updateUser(UserDto convertUserToUserDto);
+
+	List<UserDto> getReferralsByUserId(int id);
+
 }

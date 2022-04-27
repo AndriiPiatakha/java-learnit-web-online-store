@@ -8,6 +8,8 @@ public class DefaultProduct implements Product {
 	private String productName;
 	private String categoryName;
 	private double price;
+	private String imgName;
+	private String description;
 
 	public DefaultProduct() {
 	}
@@ -64,5 +66,20 @@ public class DefaultProduct implements Product {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-	
+
+	public String getImgName() {
+		return imgName;
+	}
+
+	public void setImgName(String imgName) {
+		this.imgName = imgName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

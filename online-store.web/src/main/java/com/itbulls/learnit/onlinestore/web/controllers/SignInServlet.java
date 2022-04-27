@@ -8,6 +8,7 @@ import java.io.IOException;
 import com.itbulls.learnit.onlinestore.core.facades.UserFacade;
 import com.itbulls.learnit.onlinestore.core.facades.impl.DefaultUserFacade;
 import com.itbulls.learnit.onlinestore.persistence.enteties.User;
+import com.itbulls.learnit.onlinestore.web.Configurations;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,6 +22,14 @@ public class SignInServlet extends HttpServlet {
 	
 	private UserFacade userFacade = DefaultUserFacade.getInstance();
 	
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher(Configurations.VIEWS_PATH_RESOLVER 
+				+ "signin.jsp").forward(request, response);
+	}
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		User user = userFacade.getUserByEmail(request.getParameter("email"));
 		String baseUrl = request.getScheme()
@@ -34,10 +43,10 @@ public class SignInServlet extends HttpServlet {
 			if (user.getRoleName().equals(ADMIN_ROLE_NAME)) {
 				response.sendRedirect(baseUrl + "/admin/panel");
 			} else {
-				response.sendRedirect(baseUrl + "/homepage.html");
+				response.sendRedirect(baseUrl + "/homepage");
 			}
 		} else {
-			response.sendRedirect(baseUrl + "/signin.html");
+			response.sendRedirect(baseUrl + "/signin");
 		}
 		
 	}

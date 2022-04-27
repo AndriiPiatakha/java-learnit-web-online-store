@@ -13,4 +13,10 @@ public interface PurchaseDao {
 	
 	List<PurchaseDto> getPurchases();
 
+	List<PurchaseDto> getNotCompletedPurchases(Integer lastFulfilmentStageId);
+
+	PurchaseDto getPurchaseById(Integer purchaseId);
+
+	void updatePurchase(PurchaseDto convertPurchaseToPurchaseDto);
+
 }

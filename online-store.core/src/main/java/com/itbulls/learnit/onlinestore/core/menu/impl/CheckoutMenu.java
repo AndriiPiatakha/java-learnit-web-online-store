@@ -50,7 +50,7 @@ public class CheckoutMenu implements Menu {
 		
 		order.setCreditCardNumber(creditCardNumber);
 		order.setProducts(context.getSessionCart().getProducts());
-		order.setCustomerId(context.getLoggedInUser().getId());
+		order.setCustomer(context.getLoggedInUser());
 		purchaseManagementService.addPurchase(order);
 		return true;
 	}

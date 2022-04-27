@@ -1,7 +1,4 @@
-/*-------------------------------------------------------------------------------------- 
-	Theme Name: Chamb - Responsive E-commerce HTML5 Template 
----------------------------------------------------------------------------------------- 
-    
+/*
 	1. IMPORT FILES
 	2. BASE CSS 
 	3. HEADER
@@ -3322,12 +3319,14 @@ html .ui-button.ui-state-disabled:active {
 .price-box-right a {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00cb96+0,00be8e+100 */
 	background: #00cb96;
-	/* Old browsers */
+	/* Old browsers 
 	background: -moz-linear-gradient(top, #00cb96 0%, #00be8e 100%);
-	/* FF3.6-15 */
+	/* FF3.6-15 
 	background: -webkit-linear-gradient(top, #00cb96 0%, #00be8e 100%);
-	/* Chrome10-25,Safari5.1-6 */
+	*/
+	/* Chrome10-25,Safari5.1-6 
 	background: linear-gradient(to bottom, #00cb96 0%, #00be8e 100%);
+	*/
 	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00cb96', endColorstr='#00be8e', GradientType=0);
 	/* IE6-9 */
@@ -3340,6 +3339,10 @@ html .ui-button.ui-state-disabled:active {
 	margin-top: 18px;
 	border-radius: 3px;
 	text-align: center;
+}
+
+.price-box-right a:hover {
+	background: #105d49;
 }
 
 .price-box-right h5 {
@@ -3397,5 +3400,69 @@ html .ui-button.ui-state-disabled:active {
 .bg_img_left img,
 .bg_img_right img {
 	width: 100%;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #1d99ff;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/* ===== ORDER TABLE ===== */
+
+.order-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.order-table td, .order-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.order-table tr:nth-child(even){background-color: #f2f2f2;}
+
+.order-table tr:hover {background-color: #ddd;}
+
+.order-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1d99ff;
+  color: white;
+}
+
+.order-table .custom-b {
+	background: #09294c;
+	border-radius: 3px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 500;
+	color: #fff;
+	padding: 10px 23px;
+}
+
+.order-table .custom-b:hover {
+	background: #1d99ff;
+}
+
+/* ===== MY PROFILE ===== */
+
+.my-profile-table {
+	width:100%;
 }
 

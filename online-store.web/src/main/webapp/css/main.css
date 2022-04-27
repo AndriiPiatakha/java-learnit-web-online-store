@@ -154,6 +154,14 @@ iframe {
   line-height: 1.5;
 }
 
+.txtErr {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  color: red;
+  line-height: 1.5;
+}
+
+
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 

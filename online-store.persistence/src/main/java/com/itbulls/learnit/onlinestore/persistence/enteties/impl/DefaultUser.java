@@ -84,7 +84,8 @@ public class DefaultUser implements User {
 		return "ID: " + this.getId() + "\t\t" +
 				"First Name: " + this.getFirstName() + "\t\t" +
 				"Last Name: " + this.getLastName() + "\t\t" +
-				"Email: " + this.getEmail();
+				"Email: " + this.getEmail() + 
+				"Referrer User: " + this.getReferrerUser();
 	}
 
 	@Override

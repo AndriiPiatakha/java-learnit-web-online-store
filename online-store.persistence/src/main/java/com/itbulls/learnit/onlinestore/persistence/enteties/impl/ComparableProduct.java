@@ -8,6 +8,8 @@ public class ComparableProduct implements Product, Comparable<Product> {
 	private String productName;
 	private String categoryName;
 	private double price;
+	private String imgName;
+	private String description;
 
 	public ComparableProduct() {
 	}
@@ -68,6 +70,26 @@ public class ComparableProduct implements Product, Comparable<Product> {
 	@Override
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
+	}
+
+	@Override
+	public String getImgName() {
+		return this.imgName;
+	}
+
+	@Override
+	public void setImgName(String imgName) {
+		this.imgName = imgName;
+	}
+
+	@Override
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public String getDescription() {
+		return this.description;
 	}
 
 }

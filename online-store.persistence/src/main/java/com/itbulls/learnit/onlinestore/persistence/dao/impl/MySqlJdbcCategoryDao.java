@@ -1,6 +1,8 @@
 package com.itbulls.learnit.onlinestore.persistence.dao.impl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.itbulls.learnit.onlinestore.persistence.dao.CategoryDao;
 import com.itbulls.learnit.onlinestore.persistence.dto.CategoryDto;
@@ -21,6 +23,7 @@ public class MySqlJdbcCategoryDao implements CategoryDao {
 					CategoryDto category = new CategoryDto();
 					category.setId(rs.getInt("id"));
 					category.setCategoryName(rs.getString("category_name"));
+					category.setImgName(rs.getString("img_name"));
 					return category;
 				}
 			}
@@ -28,6 +31,31 @@ public class MySqlJdbcCategoryDao implements CategoryDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	@Override
+	public List<CategoryDto> getCategories() {
+		try (var conn = DBUtils.getConnection(); 
+				var ps = conn.prepareStatement("SELECT * FROM category");
+				var rs = ps.executeQuery()) {
+			
+			List<CategoryDto> categories = new ArrayList<>();
+			
+			while (rs.next()) {
+				CategoryDto category = new CategoryDto();
+				category.setId(rs.getInt("id"));
+				category.setCategoryName(rs.getString("category_name"));
+				category.setImgName(rs.getString("img_name"));
+				categories.add(category);
+			}
+			
+			return categories;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

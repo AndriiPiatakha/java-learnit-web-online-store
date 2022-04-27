@@ -5,15 +5,20 @@ import java.util.List;
 
 import com.itbulls.learnit.onlinestore.persistence.enteties.Product;
 import com.itbulls.learnit.onlinestore.persistence.enteties.Purchase;
+import com.itbulls.learnit.onlinestore.persistence.enteties.PurchaseStatus;
+import com.itbulls.learnit.onlinestore.persistence.enteties.User;
 
 
 public class DefaultPurchase implements Purchase {
 
 	private static final int AMOUNT_OF_DIGITS_IN_CREDIT_CARD_NUMBER = 16;
 	
+	private Integer id;
 	private String creditCardNumber;
 	private List<Product> products;
-	private int customerId;
+	private User customer;
+	private PurchaseStatus purchaseStatus;
+	
 
 	@Override
 	public boolean isCreditCardNumberValid(String creditCardNumber) {
@@ -35,21 +40,20 @@ public class DefaultPurchase implements Purchase {
 	}
 
 	@Override
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	public void setCustomer(User customer) {
+		this.customer = customer;
 	}
 
 
 	@Override
-	public int getCustomerId() {
-		return this.customerId;
+	public User getCustomer() {
+		return this.customer;
 	}
 	
 	@Override
 	public String toString() {
-		return "Order: customer id - " + this.customerId + "\t" +
-					"credit card number - " + this.creditCardNumber + "\t" + 
-					"products - " + this.products;
+		return "DefaultPurchase [creditCardNumber=" + creditCardNumber + ", products=" + products + ", customer="
+				+ customer + ", purchaseStatus=" + purchaseStatus + "]";
 	}
 
 	@Override
@@ -58,8 +62,32 @@ public class DefaultPurchase implements Purchase {
 		return copy;
 	}
 
-	
-	
-	
+	@Override
+	public void setPurchaseStatus(PurchaseStatus purchaseStatus) {
+		this.purchaseStatus = purchaseStatus;
+	}
+
+	@Override
+	public PurchaseStatus getPurchaseStatus() {
+		return this.purchaseStatus;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getCreditCardNumber() {
+		return creditCardNumber;
+	}
+
+	@Override
+	public double getTotalPurchaseCost() {
+		return products.stream().mapToDouble(product -> product.getPrice()).sum();
+	}
+
 
 }

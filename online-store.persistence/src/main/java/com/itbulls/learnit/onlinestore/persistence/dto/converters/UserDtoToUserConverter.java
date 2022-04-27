@@ -38,6 +38,7 @@ public class UserDtoToUserConverter {
 		user.setMoney(userDto.getMoney().doubleValue());
 		user.setCreditCard(userDto.getCreditCard());
 		user.setPartnerCode(userDto.getPartnerCode());
+		user.setReferrerUser(convertUserDtoToUser(userDto.getReferrerUser()));
 		
 		return user;
 	}

@@ -73,6 +73,12 @@ public class UserDto {
 	public String getPartnerCode() {
 		return this.partnerCode;
 	}
+	@Override
+	public String toString() {
+		return "UserDto [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", roleDto=" + roleDto + ", money=" + money + ", creditCard=" + creditCard + ", password=" + password
+				+ ", partnerCode=" + partnerCode + ", referrerUser=" + referrerUser + "]";
+	}
 	
 	
 	

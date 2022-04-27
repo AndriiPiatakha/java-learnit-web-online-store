@@ -19,9 +19,10 @@ public class ProductDtoToProductConverter {
 
 	public List<Product> convertProductDtosToProducts(List<ProductDto> productDtos) {
 		List<Product> products = new ArrayList<>();
-		
-		for (ProductDto productDto : productDtos) {
-			products.add(convertProductDtoToProduct(productDto));
+		if (productDtos != null) {
+			for (ProductDto productDto : productDtos) {
+				products.add(convertProductDtoToProduct(productDto));
+			}
 		}
 		
 		return products;
@@ -29,12 +30,15 @@ public class ProductDtoToProductConverter {
 
 	public Product convertProductDtoToProduct(ProductDto productDto) {
 		Product product = new DefaultProduct();
-		product.setId(productDto.getId());
-		product.setPrice(productDto.getPrice().doubleValue());
-		product.setProductName(productDto.getProductName());
-		if (productDto.getCategoryDto() != null)
-			product.setCategoryName(productDto.getCategoryDto().getCategoryName());
-		
+		if (productDto != null) {
+			product.setId(productDto.getId());
+			product.setPrice(productDto.getPrice().doubleValue());
+			product.setProductName(productDto.getProductName());
+			if (productDto.getCategoryDto() != null)
+				product.setCategoryName(productDto.getCategoryDto().getCategoryName());
+			product.setImgName(productDto.getImgName());
+			product.setDescription(productDto.getDescription());
+		}
 		return product;
 	}
 
@@ -54,6 +58,8 @@ public class ProductDtoToProductConverter {
 		productDto.setPrice(BigDecimal.valueOf(product.getPrice()));
 		productDto.setCategoryDto(categoryConverter.convertCategoryNameToCategoryDtoWithOnlyName(product.getCategoryName()));
 		productDto.setProductName(product.getProductName());
+		productDto.setImgName(product.getImgName());
+		productDto.setDescription(product.getDescription());
 		return productDto;
 	}
 
