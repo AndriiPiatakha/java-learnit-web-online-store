@@ -10,6 +10,11 @@ public class DbcpDemo {
 	private static BasicDataSource ds = new BasicDataSource();
 
 	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
 		ds.setUrl("jdbc:mysql://localhost:3306/learn_it_db");
 		ds.setUsername("root");
 		ds.setPassword("root");
