@@ -9,6 +9,6 @@
 		<div class="pof-text">
 			<h3>${loggedInUser.firstName} ${loggedInUser.lastName}</h3>
 		</div>
-		<a href="#">Edit</a>
+		<a href="edit-profile">Edit</a>
 	</div>
 </div>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Sign Up</title>
+	<title>Edit Profile</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -17,47 +17,47 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="signup" method="POST">
+				<form class="login100-form validate-form" action="edit-profile" method="POST">
 					<span class="login100-form-title p-b-26">
-						Registration 
+						Update Profile 
 					</span>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter First Name">
-						<input class="input100" type="text" name="firstName">
+						<input class="input100" type="text" name="firstName" value="${loggedInUser.firstName}">
 						<span class="focus-input100" data-placeholder="First Name"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter Last Name">
-						<input class="input100" type="text" name="lastName">
+						<input class="input100" type="text" name="lastName" value="${loggedInUser.lastName}">
 						<span class="focus-input100" data-placeholder="Last Name"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="email" name="email">
+						<input class="input100" type="email" name="email" value="${loggedInUser.email}">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					<div class="wrap-input100 validate-input" data-validate="Enter old password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" name="password">
-						<span class="focus-input100" data-placeholder="Password"></span>
+						<span class="focus-input100" data-placeholder="Enter old password"></span>
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate="Repeat password">
+					<div class="wrap-input100">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="repeatPassword">
-						<span class="focus-input100" data-placeholder="Repeat Password"></span>
+						<input class="input100" type="password" name="newPassword">
+						<span class="focus-input100" data-placeholder="Enter new password (optional)"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn">
-								Sign Up
+								Update
 							</button>
 						</div>
 					</div>
@@ -72,11 +72,11 @@
 
 					<div class="text-center p-t-115">
 						<span class="txt1">
-							Already have an account?
+							Don't want to edit profile?
 						</span>
 
-						<a class="txt2" href="signin">
-							Sign In
+						<a class="txt2" href="my-profile">
+							Back to my profile
 						</a>
 					</div>
 				</form>

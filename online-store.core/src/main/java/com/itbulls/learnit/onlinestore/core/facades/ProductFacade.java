@@ -21,4 +21,6 @@ public interface ProductFacade {
 
 	Product getProductById(Integer parameter);
 
+	Product getProductByGuid(String guid);
+
 }

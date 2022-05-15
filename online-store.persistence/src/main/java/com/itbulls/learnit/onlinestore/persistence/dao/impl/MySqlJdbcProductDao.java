@@ -62,6 +62,7 @@ public class MySqlJdbcProductDao implements ProductDao {
 		product.setCategoryDto(categoryDao.getCategoryByCategoryId(rs.getInt("category_id")));
 		product.setImgName(rs.getString("img_name"));
 		product.setDescription(rs.getString("description"));
+		product.setGuid(rs.getString("guid"));
 		return product;
 	}
 
@@ -212,6 +213,26 @@ public class MySqlJdbcProductDao implements ProductDao {
 				return products;
 			}
 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
+	@Override
+	public ProductDto getProductByGuid(String guid) {
+		try (var conn = DBUtils.getConnection();
+				var ps = conn.prepareStatement("SELECT * FROM product WHERE guid = ?")) {
+			
+			ps.setString(1, guid);
+			try (var rs = ps.executeQuery()) {
+				
+				if (rs.next()) {
+					ProductDto product = populateProductDto(rs);
+					return product;
+				}
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

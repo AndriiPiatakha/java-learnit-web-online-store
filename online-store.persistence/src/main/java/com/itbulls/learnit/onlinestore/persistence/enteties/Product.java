@@ -27,4 +27,8 @@ public interface Product extends Serializable {
 	void setDescription(String description);
 
 	String getDescription();
+
+	void setGuid(String guid);
+
+	String getGuid();
 }

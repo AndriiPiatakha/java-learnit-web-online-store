@@ -10,6 +10,7 @@ public class ProductDto {
 	private CategoryDto categoryDto;
 	private String imgName;
 	private String description;
+	private String guid;
 	
 	public int getId() {
 		return id;
@@ -46,6 +47,12 @@ public class ProductDto {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public void setGuid(String guid) {
+		this.guid = guid;
+	}
+	public String getGuid() {
+		return this.guid;
 	}
 
 }

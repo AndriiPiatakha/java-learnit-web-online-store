@@ -22,5 +22,7 @@ public interface ProductDao {
 	Integer getProductCountForSearch(String searchQuery);
 
 	List<ProductDto> getProductsLikeNameForPageWithLimit(String searchQuery, Integer page, Integer paginationLimit);
+
+	ProductDto getProductByGuid(String guid);
 	
 }

@@ -74,4 +74,9 @@ public class DefaultProductFacade implements ProductFacade {
 		return productConverter.convertProductDtoToProduct(productDao.getProductById(productId));
 	}
 
+	@Override
+	public Product getProductByGuid(String guid) {
+		return productConverter.convertProductDtoToProduct(productDao.getProductByGuid(guid));
+	}
+
 }

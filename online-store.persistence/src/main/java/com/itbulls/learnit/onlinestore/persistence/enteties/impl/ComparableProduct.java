@@ -10,6 +10,7 @@ public class ComparableProduct implements Product, Comparable<Product> {
 	private double price;
 	private String imgName;
 	private String description;
+	private String guid;
 
 	public ComparableProduct() {
 	}
@@ -90,6 +91,16 @@ public class ComparableProduct implements Product, Comparable<Product> {
 	@Override
 	public String getDescription() {
 		return this.description;
+	}
+
+	@Override
+	public void setGuid(String guid) {
+		this.guid = guid;
+	}
+
+	@Override
+	public String getGuid() {
+		return this.guid;
 	}
 
 }

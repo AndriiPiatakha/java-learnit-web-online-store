@@ -10,6 +10,7 @@ public class DefaultProduct implements Product {
 	private double price;
 	private String imgName;
 	private String description;
+	private String guid;
 
 	public DefaultProduct() {
 	}
@@ -81,5 +82,15 @@ public class DefaultProduct implements Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@Override
+	public void setGuid(String guid) {
+		this.guid = guid;
+	}
+
+	@Override
+	public String getGuid() {
+		return this.guid;
 	}
 }

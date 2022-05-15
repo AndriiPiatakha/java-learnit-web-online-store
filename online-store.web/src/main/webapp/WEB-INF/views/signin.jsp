@@ -48,7 +48,7 @@
 							Don't have an account?
 						</span>
 
-						<a class="txt2" href="signup.html">
+						<a class="txt2" href="signup">
 							Sign Up
 						</a>
 					</div>
