@@ -72,9 +72,6 @@ public class EditProfileServlet extends HttpServlet {
 			return;
 		}
 		
-		System.out.println(request.getParameter("password").equals(loggedInUser.getPassword()));
-		System.out.println(loggedInUser.getPassword());
-		
 		if (!request.getParameter("password").equals(loggedInUser.getPassword())) {
 			request.getSession().setAttribute("errMsg", rb.getString("signup.err.msg.old.password.wrong"));
 			response.sendRedirect(baseUrl + "/edit-profile");
