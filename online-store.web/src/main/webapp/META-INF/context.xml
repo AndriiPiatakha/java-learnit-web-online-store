@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<context useHttpOnly="false">
+<Context useHttpOnly="false">
   
 
     <Resource name="jdbc/connpool" 
@@ -41,4 +41,4 @@
     <!-- url: The JDBC connection url for connecting to your MySQL database.
          -->
 
-</context>
+</Context>
