@@ -42,11 +42,14 @@ public class SignInServlet extends HttpServlet {
 			request.getSession().setAttribute(LOGGED_IN_USER_ATTR, user);
 			if (user.getRoleName().equals(ADMIN_ROLE_NAME)) {
 				response.sendRedirect(baseUrl + "/admin/panel");
+				return;
 			} else {
 				response.sendRedirect(baseUrl + "/homepage");
+				return;
 			}
 		} else {
 			response.sendRedirect(baseUrl + "/signin");
+			return;
 		}
 		
 	}
