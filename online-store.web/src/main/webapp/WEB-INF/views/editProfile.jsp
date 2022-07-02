@@ -23,17 +23,17 @@
 					</span>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter First Name">
-						<input class="input100" type="text" name="firstName" value="${loggedInUser.firstName}">
+						<input class="input100 has-val" type="text" name="firstName" value="${loggedInUser.firstName}">
 						<span class="focus-input100" data-placeholder="First Name"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter Last Name">
-						<input class="input100" type="text" name="lastName" value="${loggedInUser.lastName}">
+						<input class="input100 has-val" type="text" name="lastName" value="${loggedInUser.lastName}">
 						<span class="focus-input100" data-placeholder="Last Name"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="email" name="email" value="${loggedInUser.email}">
+						<input class="input100 has-val" type="email" name="email" value="${loggedInUser.email}">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
@@ -41,7 +41,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="password">
+						<input class="input100 has-val" type="password" name="password">
 						<span class="focus-input100" data-placeholder="Enter old password"></span>
 					</div>
 					
@@ -49,7 +49,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="newPassword">
+						<input class="input100 has-val" type="password" name="newPassword">
 						<span class="focus-input100" data-placeholder="Enter new password (optional)"></span>
 					</div>
 

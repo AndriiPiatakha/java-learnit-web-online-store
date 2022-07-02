@@ -23,17 +23,17 @@
 					</span>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter First Name">
-						<input class="input100" type="text" name="firstName">
+						<input class="input100 has-val" type="text" name="firstName">
 						<span class="focus-input100" data-placeholder="First Name"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Enter Last Name">
-						<input class="input100" type="text" name="lastName">
+						<input class="input100 has-val" type="text" name="lastName">
 						<span class="focus-input100" data-placeholder="Last Name"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="email" name="email">
+						<input class="input100 has-val" type="email" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
@@ -41,7 +41,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="password">
+						<input class="input100 has-val" type="password" name="password">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 					
@@ -49,7 +49,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="repeatPassword">
+						<input class="input100 has-val" type="password" name="repeatPassword">
 						<span class="focus-input100" data-placeholder="Repeat Password"></span>
 					</div>
 
