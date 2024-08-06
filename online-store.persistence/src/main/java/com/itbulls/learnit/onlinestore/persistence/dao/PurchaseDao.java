@@ -17,6 +17,8 @@ public interface PurchaseDao {
 
 	PurchaseDto getPurchaseById(Integer purchaseId);
 
-	void updatePurchase(PurchaseDto convertPurchaseToPurchaseDto);
+	void updatePurchaseStatus(PurchaseDto purchaseDto);
+	
+	void updatePurchase(PurchaseDto purchaseDto);
 
 }

@@ -31,7 +31,6 @@ public class MySqlJdbcPurchaseDao implements PurchaseDao {
 		try (var conn = DBUtils.getConnection(); 
 				var ps = conn.prepareStatement("INSERT INTO purchase (fk_purchase_user, fk_purchase_purchase_status) VALUES (?, ?);", Statement.RETURN_GENERATED_KEYS);
 				var psPurchaseProduct = conn.prepareStatement("INSERT INTO purchase_product (purchase_id, product_id) VALUES (?, ?)")) {
-			System.out.println("=============== " + purchase.getPurchaseStatusDto().getId());
 			ps.setInt(1, purchase.getUserDto().getId());
 			ps.setInt(2, purchase.getPurchaseStatusDto().getId());
 			ps.executeUpdate();
@@ -162,7 +161,7 @@ public class MySqlJdbcPurchaseDao implements PurchaseDao {
 	}
 
 	@Override
-	public void updatePurchase(PurchaseDto purchase) {
+	public void updatePurchaseStatus(PurchaseDto purchase) {
 		try (var conn = DBUtils.getConnection(); 
 				var ps = conn.prepareStatement("UPDATE `learn_it_db`.`purchase` SET `fk_purchase_purchase_status` = ? WHERE (`id` = ?);")) {
 			ps.setInt(1, purchase.getPurchaseStatusDto().getId());
@@ -171,6 +170,37 @@ public class MySqlJdbcPurchaseDao implements PurchaseDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void updatePurchase(PurchaseDto purchase) {
+	    try (var conn = DBUtils.getConnection()) {
+	        // Update the purchase status
+	        try (var ps = conn.prepareStatement("UPDATE purchase SET fk_purchase_purchase_status = ? WHERE id = ?;")) {
+	            ps.setInt(1, purchase.getPurchaseStatusDto().getId());
+	            ps.setInt(2, purchase.getId());
+	            ps.executeUpdate();
+	        }
+
+	        // Clear existing products for the purchase
+	        try (var psDelete = conn.prepareStatement("DELETE FROM purchase_product WHERE purchase_id = ?")) {
+	            psDelete.setInt(1, purchase.getId());
+	            psDelete.executeUpdate();
+	        }
+
+	        // Insert updated products for the purchase
+	        try (var psInsert = conn.prepareStatement("INSERT INTO purchase_product (purchase_id, product_id) VALUES (?, ?)")) {
+	            for (ProductDto product : purchase.getProductDtos()) {
+	                psInsert.setInt(1, purchase.getId());
+	                psInsert.setInt(2, product.getId());
+	                psInsert.addBatch();
+	            }
+	            psInsert.executeBatch();
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 
 }

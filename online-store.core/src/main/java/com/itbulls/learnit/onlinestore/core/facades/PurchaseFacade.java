@@ -16,4 +16,8 @@ public interface PurchaseFacade {
 
 	void markFulfilmentStageForPurchaseIdAsCompleted(Integer purchaseId);
 
+	Purchase getPurchaseById(Integer purchaseId);
+	
+	void updatePurchase(Purchase purchase);
+
 }

@@ -1,5 +1,7 @@
 package com.itbulls.learnit.onlinestore.persistence.enteties.impl;
 
+import java.util.Objects;
+
 import com.itbulls.learnit.onlinestore.persistence.enteties.User;
 import com.itbulls.learnit.onlinestore.persistence.utils.validation.Validate;
 
@@ -175,6 +177,29 @@ public class DefaultUser implements User {
 	@Override
 	public User getReferrerUser() {
 		return this.referrerUser;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(creditCard, email, firstName, id, lastName, money, partnerCode, password, referrerUser,
+				roleName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DefaultUser other = (DefaultUser) obj;
+		return Objects.equals(creditCard, other.creditCard) && Objects.equals(email, other.email)
+				&& Objects.equals(firstName, other.firstName) && id == other.id
+				&& Objects.equals(lastName, other.lastName)
+				&& Double.doubleToLongBits(money) == Double.doubleToLongBits(other.money)
+				&& Objects.equals(partnerCode, other.partnerCode) && Objects.equals(password, other.password)
+				&& Objects.equals(referrerUser, other.referrerUser) && Objects.equals(roleName, other.roleName);
 	}
 	
 }

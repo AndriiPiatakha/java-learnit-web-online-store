@@ -59,7 +59,7 @@ public class DefaultPurchaseFacade implements PurchaseFacade {
 		purchaseStatus.setId(newPurchaseStatusId);
 		purchase.setPurchaseStatus(purchaseStatus);
 		
-		purchaseDao.updatePurchase(purchaseConverter.convertPurchaseToPurchaseDto(purchase));
+		purchaseDao.updatePurchaseStatus(purchaseConverter.convertPurchaseToPurchaseDto(purchase));
 		
 		if (LAST_STATUS_OF_ORDER_FULFILMENT_ID.equals(newPurchaseStatusId) 
 				&& purchase.getCustomer().getReferrerUser() != null) {
@@ -68,6 +68,16 @@ public class DefaultPurchaseFacade implements PurchaseFacade {
 			referrerUser.setMoney(referrerUser.getMoney() + shareFromPurchase);
 			userFacade.updateUser(referrerUser);
 		}
+	}
+
+	@Override
+	public Purchase getPurchaseById(Integer purchaseId) {
+		return purchaseConverter.convertPurchaseDtoToPurchase(purchaseDao.getPurchaseById(purchaseId));
+	}
+
+	@Override
+	public void updatePurchase(Purchase purchase) {
+	    purchaseDao.updatePurchase(purchaseConverter.convertPurchaseToPurchaseDto(purchase));
 	}
 
 }
