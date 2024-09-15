@@ -12,7 +12,7 @@ public interface User {
 	
 	String getEmail();
 	
-	int getId();
+	Integer getId();
 	void setId(int id);
 	
 	void setPassword(String newPassword);

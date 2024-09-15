@@ -87,7 +87,7 @@ public class UserForHashTables implements User {
 	}
 
 	@Override
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 	
